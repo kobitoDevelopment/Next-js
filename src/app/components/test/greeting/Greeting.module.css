@@ -1,0 +1,12 @@
+.message {
+  font-size: 60px;
+}
+.count {
+  font-size: 30px;
+}
+.count.-even {
+  color: orange;
+}
+.count.-odd {
+  color: skyblue;
+}
