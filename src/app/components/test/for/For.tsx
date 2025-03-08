@@ -6,7 +6,7 @@ type Item = {
   name: string;
 };
 
-export default function DisplayItems() {
+export default function For() {
   // オブジェクトの配列を作成(items 配列に型を適用)
   const items: Item[] = [
     { id: 1, name: "Item 1" },
