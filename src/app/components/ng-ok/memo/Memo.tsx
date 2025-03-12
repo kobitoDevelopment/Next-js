@@ -1,7 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
 
-export default function FilteredList() {
+export default function Memo() {
   const [query, setQuery] = useState("");
 
   /* `items` を useMemo を使って定義することで、
