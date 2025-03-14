@@ -1,0 +1,181 @@
+/* App全体で適用されるCSS */
+
+/* Reset  + Base */
+html {
+  block-size: 100%;
+  -webkit-text-size-adjust: none;
+  interpolate-size: allow-keywords;
+}
+
+body {
+  min-height: 100vh;
+  overflow-wrap: anywhere;
+  line-break: strict;
+  word-break: normal;
+  font-weight: 400;
+  font-feature-settings: "palt";
+  color: #000;
+  background-color: #fff;
+}
+
+@media all and (-ms-high-contrast: none) {
+  body {
+    width: 100%;
+  }
+}
+
+.wrap {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: calc(0.25rem + 1em + 0.25rem);
+  letter-spacing: 0;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  vertical-align: baseline;
+  border: 0;
+  min-width: 0;
+  min-height: 0;
+}
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: none;
+}
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+}
+select,
+input,
+textarea,
+button {
+  vertical-align: middle;
+  background-color: transparent;
+  outline: 0px;
+  color: #000;
+}
+select,
+input,
+textarea {
+  border: 1px solid #000;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+progress {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+input[type="checkbox"] {
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  aspect-ratio: 1/1;
+  margin-right: calc(1rem / 4);
+  border: 1px solid var(--colorBlack1);
+  border-radius: calc(1rem / 4);
+  vertical-align: middle;
+  cursor: pointer;
+  &:checked {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      aspect-ratio: 2/1;
+      border-left: 2px solid var(--colorBlack1);
+      border-bottom: 2px solid var(--colorBlack1);
+      translate: -50% -50%;
+      rotate: -45deg;
+    }
+  }
+}
+
+input[type="radio"] {
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  aspect-ratio: 1/1;
+  margin-right: calc(1rem / 4);
+  border: 1px solid var(--colorBlack1);
+  border-radius: 50%;
+  background-color: var(--colorWhite1);
+  vertical-align: middle;
+  cursor: pointer;
+  &:checked {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      aspect-ratio: 1/1;
+      translate: -50% -50%;
+      border-radius: 50%;
+      background-color: var(--colorBlack1);
+    }
+  }
+}
