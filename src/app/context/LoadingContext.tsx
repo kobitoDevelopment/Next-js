@@ -32,7 +32,8 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     // ContextProvider を定義し、valueにisLoadingと操作関数を渡す
-    <LoadingContext.Provider value={{ isLoading, startLoading, stopLoading }}>
+    // React19以前では、    <LoadingContext.Provider value={{ isLoading, startLoading, stopLoading }}>のように.Providerを書く必要があった
+    <LoadingContext value={{ isLoading, startLoading, stopLoading }}>
       {/*
        *<LoadingContext.Provider>をJSX(TSX)内で使うことで、LoadingContextの値を提供するProvider を作成し、
        *この Provider で囲んだコンポーネント（children）に isLoading, startLoading, stopLoading の値を渡せるようにする
@@ -44,7 +45,8 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
        * </LoadingProvider>
        */}
       {children}
-    </LoadingContext.Provider>
+      {/* // React19以前では、</LoadingContext.Provider>のように.Providerを書く必要があった */}
+    </LoadingContext>
   );
 };
 
