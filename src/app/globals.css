@@ -33,7 +33,6 @@ body {
 * {
   margin: 0;
   padding: 0;
-  line-height: calc(0.25rem + 1em + 0.25rem);
   letter-spacing: 0;
   font: inherit;
   font-variant-numeric: tabular-nums;
@@ -100,82 +99,5 @@ button {
   background-color: transparent;
   outline: 0px;
   color: #000;
-}
-select,
-input,
-textarea {
   border: 1px solid #000;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
-}
-
-progress {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
-}
-
-input[type="checkbox"] {
-  position: relative;
-  display: inline-block;
-  width: 1rem;
-  aspect-ratio: 1/1;
-  margin-right: calc(1rem / 4);
-  border: 1px solid var(--colorBlack1);
-  border-radius: calc(1rem / 4);
-  vertical-align: middle;
-  cursor: pointer;
-  &:checked {
-    &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 70%;
-      aspect-ratio: 2/1;
-      border-left: 2px solid var(--colorBlack1);
-      border-bottom: 2px solid var(--colorBlack1);
-      translate: -50% -50%;
-      rotate: -45deg;
-    }
-  }
-}
-
-input[type="radio"] {
-  position: relative;
-  display: inline-block;
-  width: 1rem;
-  aspect-ratio: 1/1;
-  margin-right: calc(1rem / 4);
-  border: 1px solid var(--colorBlack1);
-  border-radius: 50%;
-  background-color: var(--colorWhite1);
-  vertical-align: middle;
-  cursor: pointer;
-  &:checked {
-    &:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 50%;
-      aspect-ratio: 1/1;
-      translate: -50% -50%;
-      border-radius: 50%;
-      background-color: var(--colorBlack1);
-    }
-  }
 }
