@@ -27,40 +27,37 @@ export default function Todo() {
   const addTodo = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const action = formData.get("action") as string;
-    const limit = formData.get("limit") as string;
+    const actionValue = formData.get("action");
+    const limitValue = formData.get("limit");
 
-    // inputが空白の場合は何もしない
-    if (!action.trim() || !limit) return;
+    // 型チェック
+    if (typeof actionValue !== "string" || typeof limitValue !== "string") {
+      return;
+    }
+    // 空白チェック
+    if (actionValue.trim().length === 0) {
+      return;
+    }
+    if (limitValue.trim().length === 0) {
+      return;
+    }
 
-    // 新しいToDoを作成
+    // Dateを日付形式にフォーマット
+    const limitDate = new Date(limitValue);
+
     const newTodo: Todo = {
       id: todos.length + 1,
-      action,
-      limit: new Date(limit),
+      action: actionValue,
+      limit: limitDate,
       complete: false,
     };
-    // todosとnewTodoを結合
-    const newTodos = todos.concat(newTodo);
-    setTodos(newTodos);
 
-    // ToDo追加後にフォームをリセットし、新しい入力を受け付けるようにする
+    setTodos([...todos, newTodo]);
     event.currentTarget.reset();
   };
 
   const toggleComplete = (id: number) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          // ループ中の現在のtodo配列のidが引数のidと一致する場合、現在のtodo配列を展開し、completeを反転させた配列を返す
-          const currentTodoData = { ...todo };
-          currentTodoData.complete = !currentTodoData.complete;
-          return currentTodoData;
-        } else {
-          return todo;
-        }
-      })
-    );
+    setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? { ...todo, complete: !todo.complete } : todo)));
   };
 
   return (
