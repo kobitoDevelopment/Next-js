@@ -76,6 +76,10 @@ export default function MapPage() {
   return (
     <div>
       <h2>Mapと仲良くなる</h2>
+      {/* 
+      バインドする関数に引数がある場合は {()=>{ここに書く}}
+      バインドする関数に引数がない場合は{関数名}とする
+      */}
       <button onClick={addItem}>配列の最後に追加</button>
       <button onClick={() => removeByIndex(1)}>インデックス1を削除</button>
       <button onClick={() => removeById(data[0]?.id)}>最初のIDを削除</button>

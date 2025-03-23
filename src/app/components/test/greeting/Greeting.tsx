@@ -9,10 +9,11 @@ import styles from "./Greeting.module.css";
 // propsの型を定義
 type GreetingProps = {
   message: string;
-  initialCount: number;
+  initialCount?: number; // propsを任意値にする場合、?を付与する
 };
 
-export default function Greeting({ message, initialCount }: GreetingProps) {
+// propsにデフォルトで引数を設定する場合、=で設定する
+export default function Greeting({ message, initialCount = 1 }: GreetingProps) {
   /* const [現在の状態の値, 状態を変更するための関数] = useState(初期値); */
   const [count, setCount] = useState(initialCount);
   // 偶数なら "even"、奇数なら "odd" をクラスとして追加する場合のアプローチ例

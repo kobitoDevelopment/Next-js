@@ -15,7 +15,7 @@ export default function TestPage() {
     <LayoutTest>
       <div>
         <MyLoading />
-        <Greeting message="Hello" initialCount={0} />
+        <Greeting message="Hello" />
         <For />
         <MyLink />
       </div>

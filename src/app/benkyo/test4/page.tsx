@@ -1,16 +1,21 @@
 import LayoutTest2 from "@/app/components/layouts/LayoutTest2";
-import Effect from "@/app/components/ng-ok/effect/Effect";
+import Memo from "@/app/components/ng-ok/memo/Memo";
 
-// <head>の中に代入したい値を設定
-export const metadata = {
-  title: "Test4",
-  description: "Test4",
+// コンポーネントをimportせずにこのファイルで作る例
+const Profile = function () {
+  return (
+    <div>
+      <p>即席コンポーネント</p>
+    </div>
+  );
 };
 
 export default function TestPage() {
   return (
     <LayoutTest2>
-      <Effect />
+      <Profile />
+      {/* useEffectとuseMemoの違いを検証 + /ng-ok/ディレクトリにはuseEffectが無限ループを発生させてしまうサンプルあり */}
+      <Memo />
     </LayoutTest2>
   );
 }
