@@ -12,12 +12,16 @@
 
 type MyPropsType = {
   text?: string;
+  id: number;
 };
 
-export default function MyProps({ text = "propsの初期値" }: MyPropsType) {
+export default function MyProps({ text = "propsの初期値", id }: MyPropsType) {
   return (
     <div>
-      <p>{text}</p>
+      <p>
+        {text}
+        {id}
+      </p>
     </div>
   );
 }
