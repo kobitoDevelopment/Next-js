@@ -151,16 +151,17 @@ export default function ToDoPage() {
     }
 
     // 検索ボタンを連打しても重複して登録されないよう、oroginalTodosに値があるか検証
-    if (originalTodos.length !== 0) {
-      return;
+    if (originalTodos.length === 0) {
+      // 検索前のToDoListをoriginalTodosに保存
+      setOriginalTodos(todos);
     }
 
-    // 検索前のToDoListを保持
-    setOriginalTodos(todos);
+    // 検索元データ（originalTodosがあればそちら、なければtodos）
+    const source = originalTodos.length > 0 ? originalTodos : todos;
 
     // ToDoListを検索結果で上書き
     setTodos(
-      todos.filter((item) => {
+      source.filter((item) => {
         if (item.action.includes(submitedSearchWord)) {
           return true;
         } else {
@@ -185,15 +186,14 @@ export default function ToDoPage() {
 
   return (
     <div>
-      <search>
-        <form onSubmit={searchTodo}>
-          <input type="text" name="search" id="search" />
-          <button type="submit">検索する</button>
-          <button type="button" onClick={resetSearch}>
-            検索をリセットする
-          </button>
-        </form>
-      </search>
+      <form onSubmit={searchTodo}>
+        <label htmlFor="search">検索</label>
+        <input type="text" name="search" id="search" />
+        <button type="submit">検索する</button>
+        <button type="button" onClick={resetSearch}>
+          検索をリセットする
+        </button>
+      </form>
       {todos.length === 0 && <p>登録されたToDoはありません</p>}
       {todos.length > 0 && (
         <ul>
@@ -245,7 +245,7 @@ export default function ToDoPage() {
                         </dd>
                       </div>
                     </dl>
-                    <button type="submit">編集する</button>
+                    <button type="submit">編集を保存する</button>
                   </form>
                 </details>
               </li>
