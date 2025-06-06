@@ -1,0 +1,21 @@
+.accordionTrigger {
+  position: relative;
+  width: 100%;
+}
+
+.accordionTrigger[aria-expanded="true"] + .accordionBody {
+  grid-template-rows: 1fr;
+}
+
+.accordionTrigger[aria-expanded="false"] + .accordionBody {
+  grid-template-rows: 0fr;
+}
+
+.accordionBody {
+  display: grid;
+  transition: grid-template-rows 0.3s;
+}
+
+.accordionInner {
+  overflow: hidden;
+}
